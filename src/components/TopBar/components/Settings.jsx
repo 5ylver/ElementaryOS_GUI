@@ -14,7 +14,6 @@ import {
 function Settings() {
   const [showPowerOpt, setShowPowerOpt] = useState(false);
 
-  console.log(showPowerOpt);
   return (
     <>
       <div className="flex justify-end items-center w-full space-x-4 select-none z-20">
@@ -33,21 +32,21 @@ function Settings() {
         />
       </div>
 
-      <div
+      {/* <div
         className="absolute top-0 left-0 w-full z-10 h-screen"
         onClick={() => setShowPowerOpt(false)}
+      > */}
+      <div
+        className={`absolute top-7 right-3 transition-all duration-500 ${
+          showPowerOpt
+            ? "opacity-100 visible translate-y-0"
+            : "opacity-0 invisible -translate-y-full"
+        }`}
+        onClick={(e) => e.stopPropagation()}
       >
-        <div
-          className={`absolute top-7 right-3 transition-all duration-500 ${
-            showPowerOpt
-              ? "opacity-100 visible translate-y-0"
-              : "opacity-0 invisible -translate-y-full"
-          }`}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <PowerOpt />
-        </div>
+        <PowerOpt />
       </div>
+      {/* </div> */}
     </>
   );
 }

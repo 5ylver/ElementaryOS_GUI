@@ -13,8 +13,6 @@ function Dock() {
     setIsOpen(false);
   };
 
-  console.log(isOpen);
-
   return (
     <div className="w-full absolute bottom-0 z-40 flex justify-center">
       <div className="flex relative">

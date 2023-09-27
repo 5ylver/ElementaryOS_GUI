@@ -32,3 +32,29 @@
     transform: translate(-25px);
   }
 }
+
+.custom-menu {
+  @apply rounded-md w-48 cursor-default;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 9999; 
+}
+
+.menu-item {
+  @apply px-4 py-1 text-sm hover:bg-gray-300;
+}
+
+.context-menu {
+  user-select: none;
+}
+
+.wallpaper {
+  background-image: url("./assets/wallpaper/w_1.jpg");
+  background-size: cover;
+}
+
+.selected-img {
+  @apply focus:rounded-sm focus:ring-[3px] focus:ring-blue-500 relative;
+}

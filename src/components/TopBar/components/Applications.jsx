@@ -22,21 +22,21 @@ function Applications() {
         </span>
       </div>
 
-      <div
+      {/* <div
         className="absolute top-0 left-0 w-full z-10 h-screen"
         onClick={() => setShowApps(false)}
+      > */}
+      <div
+        className={`absolute top-7 left-3 transition-all duration-500 ${
+          showApps
+            ? "opacity-100 visible translate-y-0"
+            : "opacity-0 invisible -translate-y-full"
+        }`}
+        onClick={(e) => e.stopPropagation()}
       >
-        <div
-          className={`absolute top-7 left-3 transition-all duration-500 ${
-            showApps
-              ? "opacity-100 visible translate-y-0"
-              : "opacity-0 invisible -translate-y-full"
-          }`}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <MenuApps />
-        </div>
+        <MenuApps />
       </div>
+      {/* </div> */}
     </>
   );
 }
