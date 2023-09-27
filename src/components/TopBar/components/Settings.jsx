@@ -52,7 +52,7 @@ function Settings() {
 }
 
 const PowerOpt = () => {
-  const { setIsLogged } = useContext(Context);
+  const { setIsLogged, username } = useContext(Context);
 
   return (
     <>
@@ -61,10 +61,12 @@ const PowerOpt = () => {
         <div className="bg-white rounded text-black select-none">
           <div className="flex items-center p-3">
             <div className="w-12 h-12 rounded-full bg-orange-300 flex items-center justify-center">
-              <span className="text-orange-700 font-medium text-2xl">5</span>
+              <span className="text-orange-700 font-medium text-2xl">
+                {username[0]}
+              </span>
             </div>
             <div className="text-sm ml-2">
-              <p className="font-medium">5ylver</p>
+              <p className="font-medium">{username}</p>
               <p>Logged in</p>
             </div>
           </div>
