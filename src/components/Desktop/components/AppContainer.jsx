@@ -5,12 +5,59 @@ import { Rnd } from "react-rnd";
 import { Context } from "@/context";
 import { resize1, resize2, xMark } from "@/assets";
 
-function AppContainer({ children }) {
+function AppContainer({ children, index }) {
+  const { allSize, setAllSize, setApps, apps } = useContext(Context);
   const [drag, setDrag] = useState(true);
-  // eslint-disable-next-line no-unused-vars
-  const [showApp, setshowApp] = useState(true);
   const rndRef = useRef(null);
-  const { allSize, setAllSize } = useContext(Context);
+
+  const handleCloseApp = () => {
+    const removeApp = [...apps].filter((app, i) => i != index);
+    setApps(removeApp);
+  };
+
+  const handleMaxOrMinApp = () => {
+    if (allSize) {
+      rndRef.current.updateSize({
+        width: "500px",
+        height: "500px",
+      });
+
+      rndRef.current.updatePosition({
+        x: 50,
+        y: 50,
+      });
+
+      setAllSize(false);
+    } else {
+      rndRef.current.updateSize({
+        width: "100%",
+        height: "100%",
+      });
+
+      rndRef.current.updatePosition({
+        x: 0,
+        y: 30,
+      });
+
+      setAllSize(true);
+    }
+  };
+
+  const handleMaxTouchTopBar = (d) => {
+    if (d.lastY == 28) {
+      rndRef.current.updateSize({
+        width: "100%",
+        height: "100%",
+      });
+
+      rndRef.current.updatePosition({
+        x: 0,
+        y: 30,
+      });
+
+      setAllSize(true);
+    }
+  };
 
   return (
     <>
@@ -25,26 +72,11 @@ function AppContainer({ children }) {
         }}
         // maxWidth="500px"
         // maxHeight="500px"
-        // size={{ width: 700, height: 700 }}
         minHeight="500px"
         minWidth="500px"
         disableDragging={drag}
         bounds="parent"
-        onDragStop={(e, d) => {
-          if (d.lastY == 28) {
-            rndRef.current.updateSize({
-              width: "100%",
-              height: "100%",
-            });
-
-            rndRef.current.updatePosition({
-              x: 0,
-              y: 30,
-            });
-
-            setAllSize(true);
-          }
-        }}
+        onDragStop={(e, d) => handleMaxTouchTopBar(d)}
       >
         <div className="w-full">
           <div
@@ -52,44 +84,20 @@ function AppContainer({ children }) {
             onMouseOver={() => setDrag(false)}
             onMouseOut={() => setDrag(true)}
           >
-            <div onClick={() => setshowApp(false)}>
-              <img src={xMark} className="w-3 h-3" alt="" />
+            <div onClick={handleCloseApp} className="cursor-default">
+              <img
+                src={xMark}
+                className="w-4 h-4"
+                draggable="false"
+                alt="xMark"
+              />
             </div>
 
             <div className="">Title</div>
 
-            <div
-              onClick={() => {
-                if (allSize) {
-                  rndRef.current.updateSize({
-                    width: "500px",
-                    height: "500px",
-                  });
-
-                  rndRef.current.updatePosition({
-                    x: 50,
-                    y: 50,
-                  });
-
-                  setAllSize(false);
-                } else {
-                  rndRef.current.updateSize({
-                    width: "100%",
-                    height: "100%",
-                  });
-
-                  rndRef.current.updatePosition({
-                    x: 0,
-                    y: 30,
-                  });
-
-                  setAllSize(true);
-                }
-              }}
-            >
+            <div onClick={handleMaxOrMinApp}>
               <img
                 src={allSize ? resize1 : resize2}
-                id="resize"
                 className="w-4 h-4"
                 alt=""
               />

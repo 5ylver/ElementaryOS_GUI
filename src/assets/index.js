@@ -19,6 +19,7 @@ import listBullet from "./icons/list-bullet.svg";
 import keyhole from "./icons/keyhole.svg";
 import arrowCircle from "./icons/arrow-right-circle.svg";
 import xMark from "./icons/x-mark.svg";
+import plus from "./icons/plus.svg";
 import resize1 from "./icons/resize-1.png";
 import resize2 from "./icons/resize-2.png";
 
@@ -51,4 +52,5 @@ export {
   resize1,
   resize2,
   xMark,
+  plus,
 };

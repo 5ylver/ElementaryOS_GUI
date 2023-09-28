@@ -82,7 +82,7 @@ function Login() {
         </div>
 
         <div
-          className="w-[20%] shadow-3xl rounded-md select-none"
+          className="w-[350px] shadow-3xl rounded-md select-none"
           id="container"
         >
           <div>

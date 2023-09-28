@@ -1,6 +1,11 @@
+import { useContext } from "react";
+
 import { AppContainer, ChangeWallpaper } from "./components";
+import { Context } from "@/context";
 
 function Desktop() {
+  const { apps, setApps } = useContext(Context);
+
   const handleContextMenu = (e) => {
     e.preventDefault();
     closeContextMenu();
@@ -17,6 +22,12 @@ function Desktop() {
     customMenu.style.left = `${e.clientX}px`;
 
     document.body.appendChild(customMenu);
+
+    window.document
+      .getElementById("changeWallpaper")
+      ?.addEventListener("click", () => {
+        setApps([...apps, "systemSettings"]);
+      });
 
     document.addEventListener("click", closeContextMenu);
   };
@@ -36,9 +47,11 @@ function Desktop() {
       id="desktop"
     >
       <div className="h-full w-full">
-        <AppContainer>
-          <ChangeWallpaper />
-        </AppContainer>
+        {apps?.map((app, i) => (
+          <AppContainer key={i} index={i}>
+            {app == "systemSettings" && <ChangeWallpaper />}
+          </AppContainer>
+        ))}
       </div>
     </div>
   );
