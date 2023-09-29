@@ -5,10 +5,12 @@ import { Rnd } from "react-rnd";
 import { Context } from "@/context";
 import { resize1, resize2, xMark } from "@/assets";
 
-function AppContainer({ children, index }) {
+function AppContainer({ children, index, theme }) {
   const { allSize, setAllSize, setApps, apps } = useContext(Context);
   const [drag, setDrag] = useState(true);
   const rndRef = useRef(null);
+
+  const themeBlack = theme == "terminal" ? "bg-slate-800" : "bg-white";
 
   const handleCloseApp = () => {
     const removeApp = [...apps].filter((app, i) => i != index);
@@ -63,22 +65,20 @@ function AppContainer({ children, index }) {
     <>
       <Rnd
         ref={rndRef}
-        className="border bg-white rounded-lg"
+        className={`rounded-lg ${themeBlack}`}
         default={{
           x: 50,
           y: 50,
-          // width: 320,
-          // height: 200,
+          // width: "750px",
+          // height: "450px",
         }}
-        // maxWidth="500px"
-        // maxHeight="500px"
+        minWidth="950px"
         minHeight="500px"
-        minWidth="500px"
         disableDragging={drag}
         bounds="parent"
         onDragStop={(e, d) => handleMaxTouchTopBar(d)}
       >
-        <div className="w-full">
+        <div className="w-full h-full">
           <div
             className="flex items-center justify-between bg-gray-300 rounded-t-lg py-1 px-2 cursor-default active:cursor-grabbing"
             onMouseOver={() => setDrag(false)}
@@ -104,7 +104,7 @@ function AppContainer({ children, index }) {
             </div>
           </div>
 
-          <div className="p-3 overflow-hidden">{children}</div>
+          <div className="p-3 h-full">{children}</div>
         </div>
       </Rnd>
     </>

@@ -121,12 +121,13 @@ function Login() {
                   value={password2}
                   onChange={(e) => setPassword2(e.target.value)}
                   placeholder="password"
-                  // tabIndex="-1"
+                  tabIndex="-1"
                 />
 
                 <img
                   src={arrowCircle}
                   className="absolute right-8 h-5"
+                  onClick={handleLogin}
                   alt="keyhole"
                 />
               </div>

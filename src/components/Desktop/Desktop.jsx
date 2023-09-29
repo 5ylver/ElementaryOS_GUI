@@ -2,9 +2,15 @@ import { useContext } from "react";
 
 import { AppContainer, ChangeWallpaper } from "./components";
 import { Context } from "@/context";
+import { Terminal } from "./components/Apps";
 
 function Desktop() {
   const { apps, setApps } = useContext(Context);
+
+  const componentApp = {
+    changeWallpaper: ChangeWallpaper,
+    terminal: Terminal,
+  };
 
   const handleContextMenu = (e) => {
     e.preventDefault();
@@ -26,7 +32,7 @@ function Desktop() {
     window.document
       .getElementById("changeWallpaper")
       ?.addEventListener("click", () => {
-        setApps([...apps, "systemSettings"]);
+        setApps([...apps, "changeWallpaper"]);
       });
 
     document.addEventListener("click", closeContextMenu);
@@ -47,11 +53,14 @@ function Desktop() {
       id="desktop"
     >
       <div className="h-full w-full">
-        {apps?.map((app, i) => (
-          <AppContainer key={i} index={i}>
-            {app == "systemSettings" && <ChangeWallpaper />}
-          </AppContainer>
-        ))}
+        {apps?.map((app, i) => {
+          const ComponentToRender = componentApp[app];
+          return (
+            <AppContainer key={i} index={i} theme={app}>
+              <ComponentToRender />
+            </AppContainer>
+          );
+        })}
       </div>
     </div>
   );

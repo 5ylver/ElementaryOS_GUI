@@ -17,11 +17,11 @@ function ChangeWallpaper() {
   };
 
   return (
-    <div className="grid grid-cols-7 gap-4">
+    <div className="grid grid-cols-7 gap-4 p-4 w-full flex-wrap">
       <div className="relative">
         <img
           src={w1}
-          className="w-44 h-28 selected-img"
+          className="w-48 h-28 selected-img"
           draggable="false"
           onClick={() => handleChangeWallpaper(w1)}
           alt=""
@@ -33,7 +33,7 @@ function ChangeWallpaper() {
       <div className="relative">
         <img
           src={w2}
-          className="w-44 h-28 selected-img"
+          className="w-48 h-28 selected-img"
           draggable="false"
           onClick={() => handleChangeWallpaper(w2)}
           alt=""
@@ -45,7 +45,7 @@ function ChangeWallpaper() {
       <div className="relative">
         <img
           src={w3}
-          className="w-44 h-28 selected-img"
+          className="w-48 h-28 selected-img"
           draggable="false"
           onClick={() => handleChangeWallpaper(w3)}
           alt=""
@@ -57,7 +57,7 @@ function ChangeWallpaper() {
       <div className="relative">
         <img
           src={w4}
-          className="w-44 h-28 selected-img"
+          className="w-48 h-28 selected-img"
           draggable="false"
           onClick={() => handleChangeWallpaper(w4)}
           alt=""
@@ -69,7 +69,7 @@ function ChangeWallpaper() {
       <div className="relative">
         <img
           src={w5}
-          className="w-44 h-28 selected-img"
+          className="w-48 h-28 selected-img"
           draggable="false"
           onClick={() => handleChangeWallpaper(w5)}
           alt=""

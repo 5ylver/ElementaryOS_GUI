@@ -1,19 +1,59 @@
 import { useContext, useState } from "react";
 
 import { plus, systemSettings, terminal, videos } from "@/assets";
+
 import { Context } from "@/context";
 
 function Dock() {
   const { apps } = useContext(Context);
-
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleMouseEnter = () => {
-    setIsOpen(true);
+  const imgApp = {
+    terminal,
+    changeWallpaper: systemSettings,
+    videos,
   };
 
-  const handleMouseLeave = () => {
-    setIsOpen(false);
+  const handleContextMenu = (e) => {
+    e.preventDefault();
+    closeContextMenu();
+
+    const customMenu = document.createElement("div");
+    customMenu.setAttribute("id", "menu-dock");
+    customMenu.className = "custom-menu";
+    customMenu.innerHTML = `
+      <div class="menu-item">Test</div>
+    `;
+
+    customMenu.style.top = `${e.clientY - 40}px`;
+    customMenu.style.left = `${e.clientX}px`;
+
+    document.body.appendChild(customMenu);
+
+    window.document
+      .getElementById("menu-dock")
+      ?.addEventListener("mouseenter", () => {
+        setIsOpen(true);
+      });
+
+    window.document
+      .getElementById("menu-dock")
+      ?.addEventListener("mouseleave", () => {
+        setIsOpen(false);
+        closeContextMenu();
+      });
+
+    document.addEventListener("click", () => {
+      closeContextMenu();
+    });
+  };
+
+  const closeContextMenu = () => {
+    const customMenu = document.querySelector(".custom-menu");
+    if (customMenu) {
+      document.body.removeChild(customMenu);
+      document.removeEventListener("click", closeContextMenu);
+    }
   };
 
   return (
@@ -21,8 +61,8 @@ function Dock() {
       <div className="flex relative">
         <button
           className={`w-10 h-2 ${isOpen && "h-20 w-48"}`}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          onMouseEnter={() => setIsOpen(true)}
+          onMouseLeave={() => setIsOpen(false)}
           id="container"
         >
           <div className="absolute inset-x-0 -top-4 flex h-0 items-center justify-center">
@@ -35,7 +75,10 @@ function Dock() {
             >
               <div className=" text-sky-600" id="content">
                 {isOpen && (
-                  <div className="flex items-center space-x-1">
+                  <div
+                    className="flex items-center space-x-1"
+                    onContextMenu={handleContextMenu}
+                  >
                     {apps.length == 0 ? (
                       <img
                         src={plus}
@@ -47,26 +90,11 @@ function Dock() {
                         {apps.map((app, i) => (
                           <img
                             key={i}
-                            src={systemSettings}
-                            className="w-14 h-1w-14 hover:scale-105 hover:contrast-125"
+                            src={imgApp[app]}
+                            className="w-14 h-14 hover:scale-105 hover:contrast-125"
                             alt="app"
                           />
                         ))}
-                        {/* <img
-                          src={terminal}
-                          className="w-14 h-1w-14 hover:scale-105 hover:contrast-125"
-                          alt=""
-                        />
-                        <img
-                          src={systemSettings}
-                          className="w-14 h-1w-14 hover:scale-105 hover:contrast-125"
-                          alt=""
-                        />
-                        <img
-                          src={videos}
-                          className="w-14 h-1w-14 hover:scale-105 hover:contrast-125"
-                          alt=""
-                        /> */}
                       </>
                     )}
                   </div>
