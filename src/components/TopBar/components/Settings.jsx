@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 import { Context } from "@/context";
 import {
@@ -12,7 +12,7 @@ import {
 } from "@/assets";
 
 function Settings() {
-  const [showPowerOpt, setShowPowerOpt] = useState(false);
+  const { showPowerOpt, setShowPowerOpt } = useContext(Context);
 
   return (
     <>
@@ -27,32 +27,30 @@ function Settings() {
           src={power}
           className="w-5 h-5"
           draggable="false"
-          onClick={() => setShowPowerOpt(!showPowerOpt)}
-          alt=""
+          onClick={(e) => {
+            e.stopPropagation();
+            setShowPowerOpt(!showPowerOpt);
+          }}
+          alt="power"
         />
       </div>
 
-      {/* <div
-        className="absolute top-0 left-0 w-full z-10 h-screen"
-        onClick={() => setShowPowerOpt(false)}
-      > */}
       <div
+        onClick={(e) => e.stopPropagation()}
         className={`absolute top-7 right-3 transition-all duration-500 ${
           showPowerOpt
             ? "opacity-100 visible translate-y-0"
             : "opacity-0 invisible -translate-y-full"
         }`}
-        onClick={(e) => e.stopPropagation()}
       >
         <PowerOpt />
       </div>
-      {/* </div> */}
     </>
   );
 }
 
 const PowerOpt = () => {
-  const { setIsLogged, username } = useContext(Context);
+  const { setIsLogged, username, setShowPowerOpt } = useContext(Context);
 
   return (
     <>
@@ -72,7 +70,14 @@ const PowerOpt = () => {
           </div>
 
           <div className="border-t mt-2 text-sm font-light hover:bg-gray-300 px-2 py-1">
-            <p onClick={() => setIsLogged(false)}>Log Out...</p>
+            <p
+              onClick={() => {
+                setIsLogged(false);
+                setShowPowerOpt(false);
+              }}
+            >
+              Log Out...
+            </p>
           </div>
         </div>
       </div>

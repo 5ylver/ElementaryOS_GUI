@@ -104,7 +104,7 @@ function AppContainer({ children, index, theme }) {
             </div>
           </div>
 
-          <div className="p-3 h-full">{children}</div>
+          <div className="h-full pb-9">{children}</div>
         </div>
       </Rnd>
     </>

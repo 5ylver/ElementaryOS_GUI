@@ -58,3 +58,27 @@
 .selected-img {
   @apply focus:rounded-sm focus:ring-[3px] focus:ring-blue-500 relative;
 }
+
+/* width */
+.scroll_custom::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+.scroll_custom::-webkit-scrollbar-track {
+  /* change this */
+  /* background: #f1f1f1;  */
+  @apply rounded-lg bg-slate-800;
+}
+
+/* Handle */
+.scroll_custom::-webkit-scrollbar-thumb {
+  @apply bg-slate-400;
+  /* background: #888; */
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+.scroll_custom::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

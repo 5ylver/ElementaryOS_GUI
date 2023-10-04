@@ -40,7 +40,7 @@ function DateTime() {
   }, []);
 
   return (
-    <div className="flex justify-center font-medium w-full select-none z-20">
+    <div className="flex justify-center w-full select-none text-base font-medium cursor-default">
       {formattedDateTime()}
     </div>
   );

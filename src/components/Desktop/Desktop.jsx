@@ -2,7 +2,7 @@ import { useContext } from "react";
 
 import { AppContainer, ChangeWallpaper } from "./components";
 import { Context } from "@/context";
-import { Terminal } from "./components/Apps";
+import { Blank, Terminal } from "./components/Apps";
 
 function Desktop() {
   const { apps, setApps } = useContext(Context);
@@ -10,6 +10,7 @@ function Desktop() {
   const componentApp = {
     changeWallpaper: ChangeWallpaper,
     terminal: Terminal,
+    videos: Blank,
   };
 
   const handleContextMenu = (e) => {

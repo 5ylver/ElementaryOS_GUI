@@ -12,6 +12,8 @@ export const Provider = ({ children }) => {
   const [username, setUsername] = useState("");
   const [wallpaper, setWallpaper] = useState(w1);
   const [apps, setApps] = useState([]);
+  const [showApps, setShowApps] = useState(false);
+  const [showPowerOpt, setShowPowerOpt] = useState(false);
 
   return (
     <Context.Provider
@@ -28,6 +30,10 @@ export const Provider = ({ children }) => {
         setWallpaper,
         apps,
         setApps,
+        showApps,
+        setShowApps,
+        showPowerOpt,
+        setShowPowerOpt,
       }}
     >
       {children}

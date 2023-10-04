@@ -22,7 +22,7 @@ function Dock() {
     customMenu.setAttribute("id", "menu-dock");
     customMenu.className = "custom-menu";
     customMenu.innerHTML = `
-      <div class="menu-item">Test</div>
+      <div class="menu-item">Keep in dock</div>
     `;
 
     customMenu.style.top = `${e.clientY - 40}px`;

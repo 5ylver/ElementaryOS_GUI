@@ -41,7 +41,7 @@ function Terminal() {
   };
 
   return (
-    <div className="rounded-b-md text-gray-300 w-full h-full overflow-hidden">
+    <div className="rounded-b-md text-gray-300 overflow-y-auto h-full p-3 scroll_custom">
       <div className="w-full text-base">
         {output.map((item, index) => (
           <div key={index}>
