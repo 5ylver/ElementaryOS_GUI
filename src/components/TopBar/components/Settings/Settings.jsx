@@ -1,15 +1,8 @@
 import { useContext } from "react";
 
+import { bell, bluetooth, power, speakerWave, sun, wifi } from "@/assets";
 import { Context } from "@/context";
-import {
-  battery,
-  bell,
-  bluetooth,
-  power,
-  speakerWave,
-  sun,
-  wifi,
-} from "@/assets";
+import Battery from "./components/Battery";
 
 function Settings() {
   const { showPowerOpt, setShowPowerOpt } = useContext(Context);
@@ -21,7 +14,7 @@ function Settings() {
         <img src={sun} className="w-5 h-5" draggable="false" alt="" />
         <img src={wifi} className="w-5 h-5" draggable="false" alt="" />
         <img src={bluetooth} className="w-4 h-4" draggable="false" alt="" />
-        <img src={battery} className="w-5 h-5" draggable="false" alt="" />
+        <Battery />
         <img src={bell} className="w-5 h-5" draggable="false" alt="" />
         <img
           src={power}
