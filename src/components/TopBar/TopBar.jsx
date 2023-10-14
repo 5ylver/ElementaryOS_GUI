@@ -12,6 +12,7 @@ function TopBar() {
         className={`absolute w-full flex justify-between px-3 py-0.5 text-white z-10 transition-colors ${
           allSize ? "bg-black" : "bg-transparent"
         }`}
+        onContextMenu={(e) => e.preventDefault()}
       >
         <Applications />
         <DateTime />

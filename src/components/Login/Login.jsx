@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 
-import { Settings } from "@/TopBar/components";
 import { arrowCircle, keyhole, w1 } from "@/assets";
 import { Context } from "@/context";
+import { Settings } from "../TopBar/components";
 import Modal from "./Modal";
 
 function Login() {

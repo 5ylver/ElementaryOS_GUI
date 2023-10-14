@@ -17,12 +17,15 @@ export const Provider = ({ children }) => {
   const [showDate, setshowDate] = useState(false);
   const [showBatteryOpt, setShowBatteryOpt] = useState(false);
   const [showPercentage, setshowPercentage] = useState(false);
+  const [showBrightness, setShowBrightness] = useState(false);
+  const [brightness, setBrightness] = useState(100);
 
   const handleCloseOpt = () => {
     setShowApps(false);
     setShowPowerOpt(false);
     setshowDate(false);
     setShowBatteryOpt(false);
+    setShowBrightness(false);
   };
 
   return (
@@ -51,6 +54,10 @@ export const Provider = ({ children }) => {
         setShowBatteryOpt,
         showPercentage,
         setshowPercentage,
+        showBrightness,
+        setShowBrightness,
+        brightness,
+        setBrightness,
       }}
     >
       {children}
