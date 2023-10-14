@@ -14,6 +14,16 @@ export const Provider = ({ children }) => {
   const [apps, setApps] = useState([]);
   const [showApps, setShowApps] = useState(false);
   const [showPowerOpt, setShowPowerOpt] = useState(false);
+  const [showDate, setshowDate] = useState(false);
+  const [showBatteryOpt, setShowBatteryOpt] = useState(false);
+  const [showPercentage, setshowPercentage] = useState(false);
+
+  const handleCloseOpt = () => {
+    setShowApps(false);
+    setShowPowerOpt(false);
+    setshowDate(false);
+    setShowBatteryOpt(false);
+  };
 
   return (
     <Context.Provider
@@ -34,6 +44,13 @@ export const Provider = ({ children }) => {
         setShowApps,
         showPowerOpt,
         setShowPowerOpt,
+        handleCloseOpt,
+        showDate,
+        setshowDate,
+        showBatteryOpt,
+        setShowBatteryOpt,
+        showPercentage,
+        setshowPercentage,
       }}
     >
       {children}

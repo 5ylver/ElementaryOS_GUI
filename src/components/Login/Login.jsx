@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 
+import { Settings } from "@/TopBar/components";
 import { arrowCircle, keyhole, w1 } from "@/assets";
 import { Context } from "@/context";
 import Modal from "./Modal";
@@ -38,7 +39,7 @@ function Login() {
         <p className="text-6xl">
           {hours}:{minutes}
         </p>
-        <p className="text-xl text-center">
+        <p className="text-xl">
           {dayOfWeek}, {month} {day}
         </p>
       </>
@@ -76,13 +77,17 @@ function Login() {
   return (
     <>
       {username.length != 0 ? (
-        <div className="bg-gray-800 h-screen flex items-center justify-center">
-          <div className="absolute top-7 text-white select-none">
+        <div className="bg-gray-800 h-screen">
+          <div className="px-3 py-2">
+            <Settings />
+          </div>
+
+          <div className="text-white select-none text-center mt-3">
             {formattedDateTime()}
           </div>
 
           <div
-            className="w-[350px] shadow-3xl rounded-md select-none"
+            className="w-[350px] shadow-3xl rounded-md select-none relative mx-auto mt-20"
             id="container"
           >
             <div>
