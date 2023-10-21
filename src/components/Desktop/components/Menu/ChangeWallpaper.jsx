@@ -1,10 +1,8 @@
-import { useContext } from "react";
-
 import { w1, w2, w3, w4, w5 } from "@/assets";
-import { Context } from "@/context";
+import { useState } from "react";
 
 function ChangeWallpaper() {
-  const { wallpaper, setWallpaper } = useContext(Context);
+  const [wallpaper, setWallpaper] = useState(w1);
 
   const handleChangeWallpaper = (wp) => {
     window.document

@@ -6,8 +6,10 @@ import "react-calendar/dist/Calendar.css";
 import Calendar from "react-calendar";
 
 function DateTime() {
-  const { showDate, setshowDate } = useContext(Context);
+  const { showOptTopBar, setShowOptTopBar } = useContext(Context);
   const [dateTime, setDateTime] = useState(new Date());
+
+  const { showDate } = showOptTopBar;
 
   const formattedDateTime = () => {
     const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -51,7 +53,10 @@ function DateTime() {
         <p
           onClick={(e) => {
             e.stopPropagation();
-            setshowDate(!showDate);
+            setShowOptTopBar({
+              ...showOptTopBar,
+              showDate: !showOptTopBar.showDate,
+            });
           }}
         >
           {formattedDateTime()}

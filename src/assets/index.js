@@ -22,6 +22,8 @@ import xMark from "./icons/x-mark.svg";
 import plus from "./icons/plus.svg";
 import resize1 from "./icons/resize-1.png";
 import resize2 from "./icons/resize-2.png";
+import batteryLarge from "./icons/battery-large.svg";
+import batteryCharging from "./icons/battery-charging.svg";
 
 //apps
 import terminal from "./apps/terminal.svg";
@@ -53,4 +55,6 @@ export {
   resize2,
   xMark,
   plus,
+  batteryLarge,
+  batteryCharging,
 };

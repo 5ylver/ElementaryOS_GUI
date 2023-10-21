@@ -2,10 +2,12 @@ import { useContext } from "react";
 
 import { magnifyingGlass } from "@/assets";
 import { Context } from "@/context";
-import MenuApps from "./components/MenuApps";
+import { MenuApps } from "./components";
 
 function Applications() {
-  const { showApps, setShowApps } = useContext(Context);
+  const { showOptTopBar, setShowOptTopBar } = useContext(Context);
+
+  const { showAppsTB } = showOptTopBar;
 
   return (
     <>
@@ -17,7 +19,10 @@ function Applications() {
           draggable="false"
           onClick={(e) => {
             e.stopPropagation();
-            setShowApps(!showApps);
+            setShowOptTopBar({
+              ...showOptTopBar,
+              showAppsTB: !showOptTopBar.showAppsTB,
+            });
           }}
           alt=""
         />
@@ -25,7 +30,10 @@ function Applications() {
           className="text-base font-medium cursor-default"
           onClick={(e) => {
             e.stopPropagation();
-            setShowApps(!showApps);
+            setShowOptTopBar({
+              ...showOptTopBar,
+              showAppsTB: !showOptTopBar.showAppsTB,
+            });
           }}
         >
           Applications
@@ -35,7 +43,7 @@ function Applications() {
       <div
         onClick={(e) => e.stopPropagation()}
         className={`absolute top-7 left-3 transition-all duration-500 ${
-          showApps
+          showAppsTB
             ? "opacity-100 visible translate-y-0"
             : "opacity-0 invisible -translate-y-full"
         }`}

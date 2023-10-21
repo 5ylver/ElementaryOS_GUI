@@ -4,8 +4,8 @@ import { Context } from "@/context";
 import { xMark } from "@/assets";
 
 /* eslint-disable react/prop-types */
-function Modal() {
-  const { setPassword, setUsername } = useContext(Context);
+function Modal({ setPassword }) {
+  const { setUsername } = useContext(Context);
 
   const handleValidate = () => {
     const username = window.document.getElementById("username").value.trim();

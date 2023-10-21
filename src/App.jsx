@@ -4,7 +4,7 @@ import { Desktop, Dock, Login, TopBar } from "./components";
 import { Context } from "./context";
 
 function App() {
-  const { isLogged, handleCloseOpt, brightness } = useContext(Context);
+  const { isLogged, brightness, handleCloseOptTB } = useContext(Context);
 
   const style = {
     filter: `brightness(${brightness}%)`,
@@ -12,7 +12,7 @@ function App() {
   };
 
   return (
-    <div onClick={handleCloseOpt} style={style}>
+    <div onClick={handleCloseOptTB} style={style}>
       {isLogged ? (
         <>
           <TopBar />

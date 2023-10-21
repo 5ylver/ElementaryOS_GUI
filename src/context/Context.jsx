@@ -1,31 +1,26 @@
 import { createContext, useState } from "react";
 
-import { w1 } from "@/assets";
-
 export const Context = createContext();
+
+const initialState = {
+  showDate: false,
+  showAppsTB: false,
+  showBrightness: false,
+  showBatteryOpt: false,
+  showPowerOpt: false,
+};
 
 // eslint-disable-next-line react/prop-types
 export const Provider = ({ children }) => {
   const [isLogged, setIsLogged] = useState(false);
   const [allSize, setAllSize] = useState(false);
-  const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
-  const [wallpaper, setWallpaper] = useState(w1);
   const [apps, setApps] = useState([]);
-  const [showApps, setShowApps] = useState(false);
-  const [showPowerOpt, setShowPowerOpt] = useState(false);
-  const [showDate, setshowDate] = useState(false);
-  const [showBatteryOpt, setShowBatteryOpt] = useState(false);
-  const [showPercentage, setshowPercentage] = useState(false);
-  const [showBrightness, setShowBrightness] = useState(false);
   const [brightness, setBrightness] = useState(100);
+  const [showOptTopBar, setShowOptTopBar] = useState(initialState);
 
-  const handleCloseOpt = () => {
-    setShowApps(false);
-    setShowPowerOpt(false);
-    setshowDate(false);
-    setShowBatteryOpt(false);
-    setShowBrightness(false);
+  const handleCloseOptTB = () => {
+    setShowOptTopBar(initialState);
   };
 
   return (
@@ -35,29 +30,15 @@ export const Provider = ({ children }) => {
         setIsLogged,
         allSize,
         setAllSize,
-        password,
-        setPassword,
         username,
         setUsername,
-        wallpaper,
-        setWallpaper,
         apps,
         setApps,
-        showApps,
-        setShowApps,
-        showPowerOpt,
-        setShowPowerOpt,
-        handleCloseOpt,
-        showDate,
-        setshowDate,
-        showBatteryOpt,
-        setShowBatteryOpt,
-        showPercentage,
-        setshowPercentage,
-        showBrightness,
-        setShowBrightness,
         brightness,
         setBrightness,
+        showOptTopBar,
+        setShowOptTopBar,
+        handleCloseOptTB,
       }}
     >
       {children}

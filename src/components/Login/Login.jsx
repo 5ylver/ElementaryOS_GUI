@@ -6,9 +6,10 @@ import { Settings } from "../TopBar/components";
 import Modal from "./Modal";
 
 function Login() {
-  const { setIsLogged, username, password } = useContext(Context);
+  const { setIsLogged, username } = useContext(Context);
 
   const [dateTime, setDateTime] = useState(new Date());
+  const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
 
   const formattedDateTime = () => {
@@ -142,7 +143,7 @@ function Login() {
         </div>
       ) : (
         <>
-          <Modal />
+          <Modal setPassword={setPassword} />
         </>
       )}
     </>

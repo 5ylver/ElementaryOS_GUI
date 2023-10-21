@@ -1,0 +1,48 @@
+<svg
+  viewBox="0 0 24 24"
+  enableBackground="new 0 0 24 24"
+  version="1.1"
+  xmlSpace="preserve"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlnsXlink="http://www.w3.org/1999/xlink"
+  fill="#000000"
+>
+  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+  <g
+    id="SVGRepo_tracerCarrier"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  ></g>
+  <g id="SVGRepo_iconCarrier">
+    <g id="Battery20"></g> <g id="Battery19"></g>
+    <g id="Battery18"></g> <g id="Battery17"></g>
+    <g id="Battery16"></g> <g id="Battery15"></g>
+    <g id="Battery14"></g> <g id="Battery13"></g>
+    <g id="Battery12"></g> <g id="Battery11"></g>
+    <g id="Battery10"></g> <g id="Battery09"></g>
+    <g id="Battery08"></g> <g id="Battery07"></g>
+    <g id="Battery06">
+      <g>
+        <g>
+          <path
+            d="M15,3v3c0,0.55-0.45,1-1,1h-4C9.45,7,9,6.55,9,6V3c0-0.55,0.45-1,1-1h4C14.55,2,15,2.45,15,3z"
+            fill="#1777BA"
+          ></path>
+        </g>
+        <g>
+          <path
+            d="M18,6v15c0,0.55-0.45,1-1,1H7c-0.55,0-1-0.45-1-1V6c0-0.55,0.45-1,1-1h10C17.55,5,18,5.45,18,6z"
+            fill="#2FA3D5"
+          ></path>
+        </g>
+      </g>
+      <polygon
+        fill="#1777BA"
+        points="13,9 9,13 11,13 11,18 15,12 13,12 "
+      ></polygon>
+    </g>
+    <g id="Battery05"></g> <g id="Battery04"></g>
+    <g id="Battery03"></g> <g id="Battery02"></g>
+    <g id="Battery01"></g>
+  </g>
+</svg>
